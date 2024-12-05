@@ -1,0 +1,28 @@
+1.# IP address Set up
+2.# vi /etc/fstab not cd /etc/fstab
+Disable swap partition and save this file
+3. Reboot
+4.# Go to root and run below command as per below for create script 
+5.# chmod +x install.sh
+6.# enable the cri plugin
+go to
+ cd  /etc/containerd/
+open config.toml#
+enable the cri plugin by commenting that line
+#disabled_plugins = ["cri"] [ Likr this]
+7.#systemctl restart containerd
+
+
+If occurred below error
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Running pre-flight checks
+error execution phase preflight: [preflight] Some fatal errors occurred:
+        [ERROR FileContent--proc-sys-net-ipv4-ip_forward]: /proc/sys/net/ipv4/ip_forward contents are not set to 1
+[preflight] If you know what you are doing, you can make a check non-fatal with `--ignore-preflight-errors=...`
+To see the stack trace of this error execute with --v=5 or higher
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+Then run below command 
+
+echo 1 > /proc/sys/net/ipv4/ip_forward
+
