@@ -4,10 +4,11 @@ Disable swap partition and save this file
 3. Reboot
 4.# Go to root and run below command as per below for create script 
 5.# chmod +x install.sh
+6.# ./install.sh
 6.# enable the cri plugin
 go to
  cd  /etc/containerd/
-open config.toml#
+ nano config.toml#
 enable the cri plugin by commenting that line
 #disabled_plugins = ["cri"] [ Likr this]
 7.#systemctl restart containerd
