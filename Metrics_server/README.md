@@ -19,7 +19,7 @@ Metrics API.These metrics are then used by Horizontal Pod Autoscaler.</p>
 <h3>Metrics Server offers:</h3>
 
 <p>
-=> A single deployment that works on most clusters (see Requirements)
-=>Fast autoscaling, collecting metrics every 15 seconds.
-=>Resource efficiency, using 1 mili core of CPU and 2 MB of memory for each node in a cluster.
+=> A single deployment that works on most clusters (see Requirements). <br>
+=>Fast autoscaling, collecting metrics every 15 seconds.<br>
+=>Resource efficiency, using 1 mili core of CPU and 2 MB of memory for each node in a cluster.<br>
 =>Scalable support up to 5,000 node clusters.</p>
