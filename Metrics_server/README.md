@@ -1,7 +1,6 @@
-	
 <h1>How Metrics Server Works (Architecture)</h1>
 <h3>High-level flow</h3>
-<p>
+
 +-----------+       +-----------+       +----------------+
 |   Pod     |       |  Kubelet  |       | Metrics Server |
 | (App)     | --->  | /metrics  | --->  |                |
@@ -12,7 +11,7 @@
                                                |
                                                v
                                      kubectl / HPA
-</p>
+
 <p>Metrics Server is a scalable, efficient source of container resource metrics for Kubernetes built-in autoscaling 
 pipelines.Metrics Server collects resource metrics from Kubelets and exposes them in Kubernetes apiserver through 
 Metrics API.These metrics are then used by Horizontal Pod Autoscaler.</p>
