@@ -20,6 +20,6 @@ Metrics API.These metrics are then used by Horizontal Pod Autoscaler.</p>
 
 <p>
 => A single deployment that works on most clusters (see Requirements). <br>
-=>Fast autoscaling, collecting metrics every 15 seconds.<br>
-=>Resource efficiency, using 1 mili core of CPU and 2 MB of memory for each node in a cluster.<br>
-=>Scalable support up to 5,000 node clusters.</p>
+=> Fast autoscaling, collecting metrics every 15 seconds.<br>
+=> Resource efficiency, using 1 mili core of CPU and 2 MB of memory for each node in a cluster.<br>
+=> Scalable support up to 5,000 node clusters.</p>
