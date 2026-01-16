@@ -1,20 +1,23 @@
-<h1>How Metrics Server Works (Architecture)</h1>
-<h3>High-level flow</h3>
+<h1>How Kubernetes Autoscaling Configuration</h1>
+<h3>What is Auto-Scaling</h3>
+<p>Scalability is one of the core benefits of Kubernetes (K8s). In order to get the most out of this benefit (and use K8s effectively), you need a solid understanding of how Kubernetes autoscaling works.</p>
 
-+-----------+       +-----------+       +----------------+
-|   Pod     |       |  Kubelet  |       | Metrics Server |
-| (App)     | --->  | /metrics  | --->  |                |
-+-----------+       +-----------+       +----------------+
-                                               |
-                                               v
-                                       Kubernetes API
-                                               |
-                                               v
-                                     kubectl / HPA
+ ## What is kubernetes autoscaler
+ Autoscaling in Kubernetes refers to the automatic adjustment of resources in response to changes in workload demand. Kubernetes provides several mechanisms for autoscaling: 
+- Including Horizontal Pod Autoscaling (HPA)
+- Vertical Pod Autoscaler (VPA)
+- Cluster Autoscaler
 
-<p>Metrics Server is a scalable, efficient source of container resource metrics for Kubernetes built-in autoscaling 
-pipelines.Metrics Server collects resource metrics from Kubelets and exposes them in Kubernetes apiserver through 
-Metrics API.These metrics are then used by Horizontal Pod Autoscaler.</p>
+## Horizontal Pod Autoscaling (HPA) Configuration Steps
+We’ll work through the following steps one-by-one
+1. Create a k8s cluster
+2. Install the Metrics Server
+3. Deploy a sample application
+4. Apply Horizontal Pod Autoscaler
+5. Increase load to the Application
+6. Monitor Events
+
+
 
 <h3>Metrics Server offers:</h3>
 
