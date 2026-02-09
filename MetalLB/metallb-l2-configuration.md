@@ -10,7 +10,7 @@
 - [Steps 4: Advertise the IP Address Pool](#steps-4-advertise-the-ip-address-pool)
 - [Steps 4: Expose server via LoadBalancer](#steps-4-expose-server-via-loadbalancer)
 
-##what is metallb in kubernetes
+## what is metallb in kubernetes?
 MetalLB is a network load balancer for Kubernetes applications running on bare metal hosts. MetalLB lets you use Kubernetes LoadBalancer services, which traditionally use a cloud provider network load balancer, in a bare metal environment.
 MetalLB provides external IP to Kubernetes.
 
