@@ -6,15 +6,15 @@
 - [Metallb Installation Steps By Steps](#metallb-installation-steps-by-steps)
 - [Steps 1: Enable strict ARP mode](#steps-1-enable-strict-arp-mode)
 - [Steps 2: Namespace + MetalLB manifest apply.](#steps-2-Namespace-+-MetalLB-manifest-apply)
-- [Steps 3: Layer 2 Configuration for to advertise the IP Pool](#steps-3-layer-2-configuration-for-to-advertise-the-ip-pool)
+- [Steps 3: Configuration for to advertise the IP Pool](#steps-3-configuration-for-to-advertise-the-ip-pool)
 - [Steps 4: Advertise the IP Address Pool](#steps-4-advertise-the-ip-address-pool)
-- [Steps 4: Expose server via LoadBalancer](#steps-4-expose-server-via-loadbalancer)
+- [Steps 5: Expose server via LoadBalancer](#steps-4-expose-server-via-loadbalancer)
 
 ## what is metallb in kubernetes?
 MetalLB is a network load balancer for Kubernetes applications running on bare metal hosts. MetalLB lets you use Kubernetes LoadBalancer services, which traditionally use a cloud provider network load balancer, in a bare metal environment.
 MetalLB provides external IP to Kubernetes.
 
-## metallb-installation-steps-by-steps
+## Metallb Installation Steps By Steps
 
 ##⚠️ Important Reminder (MetalLB order matters)
 
@@ -57,3 +57,59 @@ Expected:
 
 `controller-xxxxx   1/1 Running`
 `speaker-xxxxx      1/1 Running`
+
+## Steps 3: Configuration for to advertise the IP Pool
+
+`nano metallb-pool.yaml`
+
+```bash
+apiVersion: metallb.io/v1beta1
+kind: IPAddressPool
+metadata:
+  name: dhcp1-pool
+  namespace: metallb-system
+spec:
+  addresses:
+  - 192.168.244.190-192.168.244.220
+```
+```bash
+kubectl apply -f metallb-pool.yaml
+```
+
+## Steps 4: Advertise the IP Address Pool
+
+` nano metallb-pool-advertise.yaml`
+
+```bash
+apiVersion: metallb.io/v1beta1
+kind: L2Advertisement
+metadata:
+  name: metallb-dhcp
+  namespace: metallb-system
+spec:
+  ipAddressPools:
+  - dhcp1-pool
+```
+
+```bash
+kubectl apply -f metallb-pool-advertise.yaml
+```
+
+## Steps 5: Expose server via LoadBalancer
+
+```bash
+kubectl create deployment nginx-dep --image nginx --port 80
+```
+
+```bash
+kubectl expose deployment nginx-dep --type LoadBalancer --name nginx-svc
+```
+
+```bash
+kubectl get svc
+```
+
+---
+
+🎉🎉🎉 Congratulations you have successfull install MetalLB!!! 🎉🎉🎉
+:-----------------:
