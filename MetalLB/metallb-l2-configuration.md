@@ -3,7 +3,7 @@
 **Table of Contents**
 
 - [What is MetalLB Load Balancers in Kubernetes?](#what-is-metallb-in-kubernetes)
-- [MetalLB Installation Steps](#metallb-installation-steps-by-steps)
+- [Metallb Installation Steps By Steps](#metallb-installation-steps-by-steps)
 - [Steps 1: Enable strict ARP mode](#steps-1-enable-strict-arp-mode)
 - [Steps 2: Namespace + MetalLB manifest apply.](#steps-2-Namespace-+-MetalLB-manifest-apply)
 - [Steps 3: Layer 2 Configuration for to advertise the IP Pool](#steps-3-layer-2-configuration-for-to-advertise-the-ip-pool)
@@ -14,7 +14,7 @@
 MetalLB is a network load balancer for Kubernetes applications running on bare metal hosts. MetalLB lets you use Kubernetes LoadBalancer services, which traditionally use a cloud provider network load balancer, in a bare metal environment.
 MetalLB provides external IP to Kubernetes.
 
-##metallb-installation-steps-by-steps
+## metallb-installation-steps-by-steps
 
 ##⚠️ Important Reminder (MetalLB order matters)
 
@@ -22,7 +22,7 @@ MetalLB provides external IP to Kubernetes.
 	## MetalLB install করলে এই sequence follow করাই best:
 	
 1️⃣ manifests apply
-2️⃣ memberlist secret create ✅
+2️⃣ memberlist secret create 
 3️⃣ IPAddressPool + L2Advertisement apply
 
 ## Steps 1: Enable strict ARP mode?
@@ -40,4 +40,20 @@ ipvs:
 ## Steps 2: Namespace + MetalLB manifest apply.
 On Master node:
 
-`kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.15.3/config/manifests/metallb-native.yaml`
+```bash
+kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.15.3/config/manifests/metallb-native.yaml
+```
+Verify:
+
+```bash
+kubectl get ns metallb-system
+```
+MetalLB pods check:
+
+```bash
+kubectl get pods -n metallb-system
+```
+Expected:
+
+`controller-xxxxx   1/1 Running`
+`speaker-xxxxx      1/1 Running`
