@@ -25,7 +25,7 @@ MetalLB provides external IP to Kubernetes.
 2️⃣ memberlist secret create ✅
 3️⃣ IPAddressPool + L2Advertisement apply
 
-## Steps 1: Enable strict ARP mode
+## Steps 1: Enable strict ARP mode?
 
 `kubectl edit configmap -n kube-system kube-proxy`
 
@@ -37,7 +37,7 @@ ipvs:
   strictARP: true
 ```
 
-##Steps 2: Namespace + MetalLB manifest apply
+## Steps 2: Namespace + MetalLB manifest apply?
 On Master node:
 
 `kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.15.3/config/manifests/metallb-native.yaml`
