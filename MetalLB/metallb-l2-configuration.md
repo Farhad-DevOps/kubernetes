@@ -5,7 +5,7 @@
 - [What is MetalLB Load Balancers in Kubernetes?](#what-is-metallb-in-kubernetes)
 - [MetalLB Installation Steps](#metallb-installation-steps-by-steps)
 - [Steps 1: Enable strict ARP mode](#steps-1-enable-strict-arp-mode)
-- [Steps 2: Namespace + MetalLB manifest apply](#steps-2-Namespace-+-MetalLB-manifest-apply)
+- [Steps 2: Namespace + MetalLB manifest apply.](#steps-2-Namespace-+-MetalLB-manifest-apply)
 - [Steps 3: Layer 2 Configuration for to advertise the IP Pool](#steps-3-layer-2-configuration-for-to-advertise-the-ip-pool)
 - [Steps 4: Advertise the IP Address Pool](#steps-4-advertise-the-ip-address-pool)
 - [Steps 4: Expose server via LoadBalancer](#steps-4-expose-server-via-loadbalancer)
@@ -37,7 +37,7 @@ ipvs:
   strictARP: true
 ```
 
-## Steps 2: Namespace + MetalLB manifest apply?
+## Steps 2: Namespace + MetalLB manifest apply.
 On Master node:
 
 `kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.15.3/config/manifests/metallb-native.yaml`
