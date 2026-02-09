@@ -1,0 +1,9 @@
+mongo-secret user &  password is made base64
+User Name: mongouser
+User Password: mongopass
+
+To conver human readable word to base64, please use the command;
+
+echo -n mongouser | base64
+echo -n mongopass | base64
+ 
