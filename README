@@ -7,8 +7,10 @@ Disable swap partition and save this file
 6.# ./install.sh
 6.# enable the cri plugin
 go to
- cd  /etc/containerd/
- nano config.toml#
+ `cd  /etc/containerd/`
+```bash
+nano config.toml
+```
 enable the cri plugin by commenting that line
 #disabled_plugins = ["cri"] [ Likr this]
 7.#systemctl restart containerd
@@ -25,5 +27,7 @@ To see the stack trace of this error execute with --v=5 or higher
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 Then run below command 
 
+```bash
 echo 1 > /proc/sys/net/ipv4/ip_forward
+```
 
